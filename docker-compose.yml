@@ -37,3 +37,7 @@ services:
 
 volumes:
   mongo-data-prod:
+  
+  networks:
+  dlrs-net:
+    driver: bridge
