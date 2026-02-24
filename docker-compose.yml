@@ -17,7 +17,7 @@ services:
 
   api: 
     restart: always
-    build: ./fingerprint-server
+    build: ./apps/fp-app/fingerprint-server
     environment:
       - MONGO_URI=${MONGO_URI}
       - PORT=${PORT}
