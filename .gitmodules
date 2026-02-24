@@ -1,0 +1,3 @@
+[submodule "apps/fp-app"]
+	path = apps/fp-app
+	url = git@github.com:ratelimiting/fp.git
