@@ -1,3 +1,17 @@
-baseURL = 'http://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseURL = 'https://dlrs.me/'
+theme = 'PaperMod'
+
+defaultContentLanguage = 'en'
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    title = "Devsec?"
+    contentDir = "content/en" # Posts go in /content/en/
+    weight = 1
+  
+  [languages.es]
+    languageName = "Español"
+    title = "Devsec?"
+    contentDir = "content/es" # Posts go in /content/es/
+    weight = 2
