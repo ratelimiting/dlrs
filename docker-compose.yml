@@ -30,10 +30,8 @@ services:
   api: 
     restart: always
     build: ./apps/fp-app/fingerprint-server
-    environment:
-      - MONGO_URI=${MONGO_URI}
-      - PORT=${PORT}
-      - NODE_ENV=${NODE_ENV}
+    env_file: 
+      - ./apps/fp-app/fingerprint-server/.env
     depends_on:
       - mongo
     networks: 
@@ -42,9 +40,8 @@ services:
     image: mongo:latest
     volumes:
       - mongo-data-prod:/data/db
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
-      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    env_file: 
+      - ./apps/fp-app/fingerprint-server/.env
     networks:
       - dlrs-net
 
