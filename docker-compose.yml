@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile 
       args:
         - VITE_API_URL=/api
-      ports:  
+    ports:  
       - "80:80"
       - "443:443"
     volumes:
