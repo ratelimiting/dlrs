@@ -14,7 +14,14 @@ services:
       - dlrs-net
     depends_on:
       - frontend
+      - blog
 
+  blog:
+    container_name: blog
+    restart: always
+    build: ./apps/blog 
+    networks:
+      - dlrs-net
   frontend:
     restart: always
     build: 
