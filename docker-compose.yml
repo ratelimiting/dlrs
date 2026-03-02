@@ -38,7 +38,7 @@ services:
     restart: always
     build: ./apps/fp-app/fingerprint-server
     env_file: 
-      - ./apps/fp-app/fingerprint-server/.env
+      - ./.env
     depends_on:
       - mongo
     networks: 
@@ -48,7 +48,7 @@ services:
     volumes:
       - mongo-data-prod:/data/db
     env_file: 
-      - ./apps/fp-app/fingerprint-server/.env
+      - ./.env
     networks:
       - dlrs-net
 
