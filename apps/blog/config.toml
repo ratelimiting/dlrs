@@ -6,12 +6,12 @@ defaultContentLanguage = 'en'
 [languages]
   [languages.en]
     languageName = "English"
-    title = "Devsec?"
+    title = "DLRS"
     contentDir = "content/en" # Posts go in /content/en/
     weight = 1
   
   [languages.es]
     languageName = "Español"
-    title = "Devsec?"
+    title = "DLRS"
     contentDir = "content/es" # Posts go in /content/es/
     weight = 2
