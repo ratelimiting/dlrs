@@ -1,5 +1,5 @@
 ---
-title: "Fingerprint simulator "
+title: "Simulador de fingerprint "
 date: 2026-02-24
 draft: false
 tags: ["cybersecurity", "MERN", "docker", "biometrics", "cve", "exploit", "vulnerability", "opsec"]
