@@ -7,7 +7,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./nginx/conf:/etc/nginx/conf.d:ro  
+      - ./nginx/conf:/etc/nginx/conf.d:ro
       - /etc/ssl/certs/cloudflare.pem:/etc/ssl/certs/cloudflare.pem:ro
       - /etc/ssl/private/cloudflare.key:/etc/ssl/private/cloudflare.key:ro
     networks:
@@ -15,42 +15,69 @@ services:
     depends_on:
       - frontend
       - blog
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   blog:
     container_name: blog
     restart: always
-    build: ./apps/blog 
+    build: ./apps/blog
     networks:
       - dlrs-net
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
   frontend:
     restart: always
-    build: 
+    build:
       context: ./apps/fp-app/fingerprint-client
-      dockerfile: Dockerfile 
+      dockerfile: Dockerfile
       args:
         - VITE_API_URL=/api
     networks:
       - dlrs-net
     depends_on:
       - api
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
-  api: 
+  api:
     restart: always
     build: ./apps/fp-app/fingerprint-server
-    env_file: 
+    env_file:
       - ./.env
     depends_on:
       - mongo
-    networks: 
+    networks:
       - dlrs-net
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
   mongo:
     image: mongo:latest
     volumes:
       - mongo-data-prod:/data/db
-    env_file: 
+    env_file:
       - ./.env
     networks:
       - dlrs-net
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
 volumes:
   mongo-data-prod:
