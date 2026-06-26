@@ -3,6 +3,9 @@ theme = 'PaperMod'
 
 defaultContentLanguage = 'en'
 
+[params]
+  author = "DLRS"
+
 [languages]
   [languages.en]
     languageName = "English"
